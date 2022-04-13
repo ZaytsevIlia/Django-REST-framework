@@ -2,7 +2,7 @@ from rest_framework.serializers import HyperlinkedModelSerializer, ModelSerializ
 from .models import Author, Article, Book, Biography
 
 
-class SimpleAuthorModelSerializer(HyperlinkedModelSerializer):
+class SimpleAuthorModelSerializer(ModelSerializer):
     class Meta:
         model = Author
         fields = ['first_name', 'last_name', 'url']
