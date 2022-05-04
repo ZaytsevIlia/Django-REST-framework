@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'authors',
     'rest_framework',
     'corsheaders',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -135,5 +136,9 @@ CORS_ALLOWED_ORIGINS = [
 REST_FRAMEWORK = {
     'DEFAULT_RENDER_CLASSES': [
         'rest_framework.renders.JSONRenderer',
-    ]
+        'rest_framework.renders.BrowsableAPIRenderer',
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
 }
